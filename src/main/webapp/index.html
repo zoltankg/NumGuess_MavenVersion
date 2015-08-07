@@ -1,0 +1,124 @@
+
+<!-- didactic purposes
+
+Some items are intentionally not optimized or not coded in the right way
+
+FastTrackIT 2015
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Our Labbbb</title>
+      <meta charset="utf-8"/>
+      <link href="numguessstyle.css" rel="stylesheet" type="text/css"/>
+
+    <script language="JavaScript">
+
+        function reset(){
+            document.getElementById("serverResponse").innerText="";
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange=callback;
+            var url ="NumGenServlet"+"?requestRestartGame=1";
+            xmlHttp.open("GET",url,true);
+            xmlHttp.send();
+        }
+
+         function guess(){
+             xmlHttp = new XMLHttpRequest();
+             xmlHttp.onreadystatechange=callback;
+             var url ="NumGenServlet"+"?requestGuessNumber="+document.getElementById("number").value;
+             xmlHttp.open("GET",url,true);
+             xmlHttp.send();
+         }
+
+        function guessLink(givenValue) {
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange=callback;
+            var url ="NumGenServlet"+"?requestGuessNumber="+givenValue;
+            xmlHttp.open("GET",url,true);
+            xmlHttp.send();
+        }
+
+         function callback() {
+             if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+                 var jSonMessage = JSON.parse(xmlHttp.responseText);
+                 var keyRestartGame=jSonMessage.keyRestartGame;
+                 if (keyRestartGame != undefined && keyRestartGame.length > 0) {
+                     alert("Restart cu succes, jocul a reinceput!");
+                     document.getElementById("number").value="";
+                     return;
+                 }
+
+                 var keyError = jSonMessage.keyError;
+                 if (keyError != undefined && keyError.length > 0) {
+                     alert("Trebuie sa introduceti un numar valid!");
+                     return;
+                 }
+                var keySuccess = jSonMessage.keySuccess;
+                 var keyHint = jSonMessage.keyHint;
+                 var keyNrGuesses = jSonMessage.keyNrGuesses;
+
+                 if(keySuccess=="false") {
+                     if (keyHint == "higher")
+                         document.getElementById("serverResponse").innerHTML = "WRONG, Try a Higher one!";
+                     else if (keyHint == "lower")
+                         document.getElementById("serverResponse").innerHTML = "WRONG, Try a Lower one!";
+                 }
+                 else
+                 if(keySuccess=="true")
+                 {
+                     document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses.";
+                 }
+             }
+         }
+
+    </script>
+
+  </head>
+
+
+  <body>
+
+
+  <div id="header">
+      <div id="sitebranding">
+          <h1>FastTrackIT.org</h1>
+      </div>
+      <div id="tagline">
+          <p>Welcome to our Lab 2015</p>
+      </div>
+  </div>
+  <div id="navigation">
+      <a href="javascript:guessLink(1)">It could be 1</a></br>
+      <a href="javascript:guessLink(2)">It could be 2</a></br>
+      <a href="javascript:guessLink(3)">It could be 3</a></br>
+      <a href="javascript:guessLink(4)">It could be 4</a></br>
+      <a href="javascript:guessLink(5)">It could be 5</a></br>
+  </div>
+  <div id="bodycontent">
+      <div id="form">
+          <label for="number">Number:&nbsp;</label><input type="number" id="number" style="width:30px"/>
+
+          </br></br>
+
+          <input type="button" id="guessButton" value="Guess now" onClick="guess()"/>
+          <input type="button" id="resetButton" value="Reset Game" onClick="reset()"/>
+      </div>
+
+  </div>
+
+  <div id="serverResponse"></div>
+
+  <div id="postcontent">
+      <a href="javascript:guessLink(6)">It could be 6</a></br>
+      <a href="javascript:guessLink(7)">It could be 7</a></br>
+      <a href="javascript:guessLink(8)">It could be 8</a></br>
+      <a href="javascript:guessLink(9)">It could be 9</a></br>
+      <a href="javascript:guessLink(10)">It could be 10</a></br>
+  </div>
+
+  </body>
+</html>
