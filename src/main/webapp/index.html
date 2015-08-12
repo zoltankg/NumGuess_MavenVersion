@@ -53,13 +53,14 @@ FastTrackIT 2015
                  }
 
                  var keyError = jSonMessage.keyError;
-                 if (keyError != undefined && keyError.length > 0) {
-                     alert("Trebuie sa introduceti un numar valid!");
-                     return;
-                 }
+                 <!--if (keyError != undefined && keyError.length > 0) {-->
+                     <!--alert("Trebuie sa introduceti un numar valid!");-->
+                     <!--return;-->
+                 <!--}-->
                 var keySuccess = jSonMessage.keySuccess;
                  var keyHint = jSonMessage.keyHint;
                  var keyNrGuesses = jSonMessage.keyNrGuesses;
+                 var keyCounter=jSonMessage.keyCounter;
 
                  if(keySuccess=="false") {
                      if (keyHint == "higher")
@@ -70,7 +71,7 @@ FastTrackIT 2015
                  else
                  if(keySuccess=="true")
                  {
-                     document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses.";
+                     document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses."+"</br> Your time:"+keyCounter;
                  }
              }
          }
@@ -100,7 +101,7 @@ FastTrackIT 2015
   </div>
   <div id="bodycontent">
       <div id="form">
-          <label for="number">Number:&nbsp;</label><input type="number" id="number" style="width:30px"/>
+          <label for="number">Number:&nbsp;</label><input type="number" id="number" style="width:30px" required min="0" max="10" autofocus/>
 
           </br></br>
 
