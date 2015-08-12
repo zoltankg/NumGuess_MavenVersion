@@ -26,11 +26,11 @@ public class NumGeneratorBusinessLogic {
 
     private long counter_guess_start;
 
-    public long getCounter_guess_stop() {
+    public double getCounter_guess_stop() {
         return counter_guess_stop;
     }
 
-    private long counter_guess_stop;
+    private double counter_guess_stop;
 
     public NumGeneratorBusinessLogic(){
         resetNumberGenerator();
@@ -73,7 +73,7 @@ public class NumGeneratorBusinessLogic {
         if (guessNumber == generatedNumber) {
             hint="";
             successfulGuess = true;
-            counter_guess_stop=System.currentTimeMillis()-counter_guess_start;
+            counter_guess_stop=(System.currentTimeMillis()-counter_guess_start)/1000.0;
         } else if (guessNumber < generatedNumber) {
             hint = "higher";
             successfulGuess = false;
