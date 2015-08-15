@@ -78,8 +78,11 @@ public class NumGenServlet extends HttpServlet {
                 boolean success = nbl.determineGuess(iGuessNumber);
                 String hint = nbl.getHint();
                 int nrGuesses = nbl.getNumGuesses();
+                boolean isMinimalScore=nbl.isMinimalScore();
                // jsonResponse = "{\"keySuccess\":\"" + success + "\", \"keyHint\":\"" + hint + "\", \"keyNrGuesses\":\"" + nrGuesses + "\"}";
-                jsonResponse = "{\"keySuccess\":\"" + success + "\", \"keyHint\":\"" + hint+ "\", \"keyCounter\":\"" + nbl.getCounter_guess_stop() + "\", \"keyNrGuesses\":\"" + nrGuesses + "\"}";
+               // jsonResponse = "{\"keySuccess\":\"" + success + "\", \"keyHint\":\"" + hint+ "\", \"keyCounter\":\"" + nbl.getCounter_guess_stop() + "\", \"keyNrGuesses\":\"" + nrGuesses + "\"}";
+
+                jsonResponse = "{\"keySuccess\":\"" + success + "\", \"keyHint\":\"" + hint+ "\", \"keyCounter\":\"" + nbl.getCounter_guess_stop() + "\", \"isMinimalScore\":\"" + nbl.isMinimalScore() +"\", \"keyNrGuesses\":\"" + nrGuesses + "\"}";
 
 
             } else {

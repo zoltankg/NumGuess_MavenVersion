@@ -32,6 +32,13 @@ public class NumGeneratorBusinessLogic {
 
     private double counter_guess_stop;
 
+
+    public boolean isMinimalScore() {
+        return isMinimalScore;
+    }
+
+    private boolean isMinimalScore;
+
     public NumGeneratorBusinessLogic(){
         resetNumberGenerator();
     }
@@ -57,6 +64,7 @@ public class NumGeneratorBusinessLogic {
         numberOfGuesses = 0;
         hint = "";
         counter_guess_start=0L;
+        isMinimalScore=false;
     }
 
     public boolean determineGuess(int guessNumber){
@@ -74,6 +82,30 @@ public class NumGeneratorBusinessLogic {
             hint="";
             successfulGuess = true;
             counter_guess_stop=(System.currentTimeMillis()-counter_guess_start)/1000.0;
+
+            // to do for increment 3
+            // write this in a singleton
+            // see if this is the best result
+            // print smething if I am the best so far
+
+            MyListOfHallOfFame hallOfFameList = MyListOfHallOfFame.getInstance();
+            hallOfFameList.addItem(counter_guess_stop);
+
+            // see if I am the best
+            HallOfFame minHall= hallOfFameList.getMinScore();
+            if(minHall.getScore()==counter_guess_stop)
+            {
+                // I am the new winner
+                System.out.println("I am the new winner, the minimal score:"+minHall.getScore());
+                isMinimalScore=true;
+
+            }
+
+
+
+
+
+
         } else if (guessNumber < generatedNumber) {
             hint = "higher";
             successfulGuess = false;
