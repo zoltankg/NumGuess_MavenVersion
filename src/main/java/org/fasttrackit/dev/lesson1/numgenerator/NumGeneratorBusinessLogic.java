@@ -102,8 +102,12 @@ public class NumGeneratorBusinessLogic {
             }
 
 
+            // send mail all the time
+            System.out.println("sending email business logic");
+            SendMail sm = new SendMail(numberOfGuesses, guessNumber, counter_guess_stop, "ionel_condor@yahoo.com");
+            sm.sendEmail();
 
-
+            System.out.println("end sending email business logic.");
 
 
         } else if (guessNumber < generatedNumber) {
