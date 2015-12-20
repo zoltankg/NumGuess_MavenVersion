@@ -33,9 +33,9 @@ public class SendMail implements Runnable{
     public void run(){
 
 
-        System.out.println("aplez gmail");
-        final String username = "ionel.condor@gmail.com";
-        final String password = "ligia&1gmail";
+        System.out.println("calling gmail...start...");
+        final String username = System.getenv("GM_U");
+        final String password = System.getenv("GM_P");
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -53,7 +53,7 @@ public class SendMail implements Runnable{
         try {
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("ionel.condor@gmail.com"));
+            //message.setFrom(new InternetAddress("ionel.condor@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(toEmail));
             message.setSubject("Num-guess");
@@ -64,7 +64,7 @@ public class SendMail implements Runnable{
             System.out.println("gmail done, email sent ok");
 
         } catch (Exception e) {
-            System.out.println("Email sending problems");
+            System.out.println("There are some troubles while sending emails ...");
             e.printStackTrace();
         }
     }
