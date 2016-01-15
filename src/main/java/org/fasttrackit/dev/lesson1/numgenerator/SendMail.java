@@ -36,6 +36,7 @@ public class SendMail implements Runnable{
         System.out.println("calling gmail...start...");
         final String username = System.getenv("GM_U");
         final String password = System.getenv("GM_P");
+        System.out.println("u/p="+username+"/"+password);
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
