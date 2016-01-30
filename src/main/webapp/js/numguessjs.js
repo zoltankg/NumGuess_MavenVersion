@@ -55,7 +55,7 @@
                  else
                  if(keySuccess=="true")
                  {
-                     document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses. " + "TIME: " + totalTime + " " + timeMin + "";
+                     document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses. " + " " + totalTime + " CURRENT TIME: " + timeMin + "";
 
                  }
              }
