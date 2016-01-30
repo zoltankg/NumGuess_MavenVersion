@@ -42,6 +42,8 @@
                  var keyHint = jSonMessage.keyHint;
                  var keyNrGuesses = jSonMessage.keyNrGuesses;
                  var totalTime = jSonMessage.totalTime;
+                 var timeMin = jSonMessage.timeMin;
+
 
 
                  if(keySuccess=="false") {
@@ -53,7 +55,8 @@
                  else
                  if(keySuccess=="true")
                  {
-                     document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses." + "TIME:" + totalTime + ".";
+                     document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses. " + "TIME: " + totalTime + " " + timeMin + "";
+
                  }
              }
          }

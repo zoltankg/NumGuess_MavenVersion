@@ -78,8 +78,9 @@ public class NumGenServlet extends HttpServlet {
                 boolean success = nbl.determineGuess(iGuessNumber);
                 String hint = nbl.getHint();
                 int nrGuesses = nbl.getNumGuesses();
-                long totalTime = nbl.getTotalTime();
-                jsonResponse = "{\"keySuccess\":\"" + success + "\", \"keyHint\":\"" + hint + "\", \"keyNrGuesses\":\"" + nrGuesses + "\" , \"totalTime\":\"" + totalTime + "\"}";
+                double totalTime = nbl.getTotalTime();
+                String timeMin = nbl.getTimeMin();
+                jsonResponse = "{\"keySuccess\":\"" + success + "\", \"keyHint\":\"" + hint + "\", \"keyNrGuesses\":\"" + nrGuesses + "\" , \"totalTime\":\"" + totalTime + "\" , \"timeMin\":\"" + timeMin + "\"}";
                 System.out.println(jsonResponse);
 
             } else {

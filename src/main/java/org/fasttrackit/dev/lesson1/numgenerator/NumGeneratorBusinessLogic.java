@@ -1,5 +1,10 @@
 package org.fasttrackit.dev.lesson1.numgenerator;
 
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by condor on 29/11/14.
  * FastTrackIT, 2015
@@ -23,9 +28,22 @@ public class NumGeneratorBusinessLogic {
     private int numberOfGuesses;
     private int generatedNumber;
     private String hint;
-    private long startTime;
-    private long endTime;
-    private long totalTime;
+    private double startTime;
+    private double endTime;
+    private double totalTime;
+
+    public String getTimeMin() {
+        return timeMin;
+    }
+
+    public void setTimeMin(String timeMin) {
+        this.timeMin = timeMin;
+    }
+
+    private String timeMin;
+
+
+
 
     public NumGeneratorBusinessLogic(){
         resetNumberGenerator();
@@ -67,6 +85,13 @@ public class NumGeneratorBusinessLogic {
             System.out.println("TIME   =   " + totalTime);
             hint="";
             successfulGuess = true;
+            DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+            //get current date time with Date()
+            Date date = new Date();
+            timeMin = dateFormat.format(date);
+            System.out.println(timeMin);
+
+
         } else if (guessNumber < generatedNumber) {
             hint = "higher";
             successfulGuess = false;
@@ -77,7 +102,7 @@ public class NumGeneratorBusinessLogic {
         return successfulGuess;
     }
 
-    public long getStartTime() {
+    public double getStartTime() {
         return startTime;
     }
 
@@ -85,7 +110,7 @@ public class NumGeneratorBusinessLogic {
         this.startTime = startTime;
     }
 
-    public long getEndTime() {
+    public double getEndTime() {
         return endTime;
     }
 
@@ -93,7 +118,7 @@ public class NumGeneratorBusinessLogic {
         this.endTime = endTime;
     }
 
-    public long getTotalTime() {
+    public double getTotalTime() {
         return totalTime;
     }
 
@@ -101,3 +126,4 @@ public class NumGeneratorBusinessLogic {
         this.totalTime = totalTime;
     }
 }
+
