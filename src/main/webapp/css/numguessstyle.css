@@ -15,6 +15,18 @@ body {
     background-image: url("Fruits.png");
 }
 
+#sitebranding a {
+    color:antiquewhite;
+    font-weight:bold;
+}
+
+#sitebranding {
+    text-align:right;
+    padding-top:30px;
+    padding-right:20px;
+    padding-bottom:5px;
+}
+
 
 h1 {
     font-size: large;
@@ -27,15 +39,18 @@ h1 {
 }
 
 #tagline p {
+    text-align:center;
     font-style: italic;
     font-family: Georgia, Times, serif;
-    background-color: #bed8f3;
-    border-top: 3px solid #7da5d8;
-    border-bottom: 3px solid #7da5d8;
-    padding-top: .2em;
+    border-bottom: 10px double #500d1d;
+    padding-top: 1.2em;
     padding-bottom: .2em;
     padding-left: .8em;
     margin: 0;
+    font-size:25px;
+    line-height:1.2;
+    text-shadow:10px -6px 2px #080707;
+    color:antiquewhite;
 }
 
 #header {
@@ -46,51 +61,69 @@ h1 {
 }
 
 #navigation {
-
     position: absolute;
-    top: 110px;
-    width: 110px;
+    top: 230px;
+    left:373px;
+    width: 180px;
     height: 180px;
-
-    color:black;
     padding-left: .8em;
-;
+    font-size:25px;
+    line-height:1.2;
+    font-weight:bold;
+}
+#navigation a {
+    color:white;
+    text-shadow:10px -6px 2px #000000;
 }
 
 #bodycontent {
-
     position: absolute;
-    left: 140px;
-    top: 120px;
+    left: 575px;
+    top: 230px;
     padding-top:.4em;
     padding-left:2em;
 }
 
 #postcontent {
     position: absolute;
-    left: 360px;
-    top: 110px;
-    width: 120px;
+    left: 825px;
+    top: 230px;
+    width: 200px;
     height:180px;
+    font-size:25px;
+    line-height:1.2;
+    font-weight:bold;
+}
 
-    color:black;
-    padding-left: .8em;
-;
+#postcontent a {
+    color:white;
+    text-shadow:10px -6px 2px #000000;
 }
 
 #serverResponse {
-    color:red;
     position: absolute;
-    top: 210px;
-    left: 140px;
-    width: 200px;
-    background-color: floralwhite;
-    color: blue;
+    top: 440px;
+    left: 315px;
+    width: 738px;
+    color: red;
     padding-left: .8em;
-
+    font-size:25px;
+    font-weight:bold;
+    line-height:1.1;
+    text-shadow:3px -2px 0px #000000;
+    text-align:center;
 }
 
+#form {
+    border-width:4px;
+    border-style:double;
+    border-color:#500d1d;
+}
 
+#form label {
+    color:white;
+    text-shadow:2px -1px 1px #000000;
+}
 
 
 
