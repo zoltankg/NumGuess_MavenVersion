@@ -21,7 +21,7 @@ FastTrackIT 2015
 
 public class NumGeneratorBusinessLogic {
 
-    private static final int MAX_NUMBER = 6;
+    private static final int MAX_NUMBER = 10;
 
     private boolean isFirstTime = true;
     private boolean successfulGuess;
@@ -31,16 +31,10 @@ public class NumGeneratorBusinessLogic {
     private double startTime;
     private double endTime;
     private double totalTime;
-
-    public String getTimeMin() {
-        return timeMin;
-    }
-
-    public void setTimeMin(String timeMin) {
-        this.timeMin = timeMin;
-    }
-
     private String timeMin;
+
+
+
 
 
 
@@ -124,6 +118,14 @@ public class NumGeneratorBusinessLogic {
 
     public void setTotalTime(long totalTime) {
         this.totalTime = totalTime;
+    }
+
+    public String getTimeMin() {
+        return timeMin;
+    }
+
+    public void setTimeMin(String timeMin) {
+        this.timeMin = timeMin;
     }
 }
 

@@ -27,14 +27,14 @@
              if(xmlHttp.readyState==4 && xmlHttp.status==200) {
                  var jSonMessage = JSON.parse(xmlHttp.responseText);
                  var keyRestartGame=jSonMessage.keyRestartGame;
-                 if (keyRestartGame != undefined && keyRestartGame.length > 0) {
+                 if (keyRestartGame !== undefined && keyRestartGame.length > 0) {
                      alert("Restart cu succes, jocul a reinceput!");
                      document.getElementById("number").value="";
                      return;
                  }
 
                  var keyError = jSonMessage.keyError;
-                 if (keyError != undefined && keyError.length > 0) {
+                 if (keyError !== undefined && keyError.length > 0) {
                      alert("Trebuie sa introduceti un numar valid!");
                      return;
                  }
@@ -46,14 +46,14 @@
 
 
 
-                 if(keySuccess=="false") {
-                     if (keyHint == "higher")
+                 if(keySuccess==="false") {
+                     if (keyHint === "higher")
                          document.getElementById("serverResponse").innerHTML = "WRONG, Try a Higher one!";
-                     else if (keyHint == "lower")
+                     else if (keyHint === "lower")
                          document.getElementById("serverResponse").innerHTML = "WRONG, Try a Lower one!";
                  }
                  else
-                 if(keySuccess=="true")
+                 if(keySuccess==="true")
                  {
                      document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses in: " + " " + totalTime + " second." + "<br>" + " CURRENT TIME: " + timeMin + "";
 
