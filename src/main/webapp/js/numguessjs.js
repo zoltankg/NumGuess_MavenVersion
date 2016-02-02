@@ -1,6 +1,6 @@
        function reset(){
             document.getElementById("serverResponse").innerText="";
-            var xmlHttp = new XMLHttpRequest();
+            xmlHttp = new XMLHttpRequest();
             xmlHttp.onreadystatechange=callback;
             var url ="NumGenServlet"+"?requestRestartGame=1";
             xmlHttp.open("GET",url,true);
