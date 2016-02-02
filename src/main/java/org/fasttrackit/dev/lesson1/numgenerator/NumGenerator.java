@@ -18,7 +18,9 @@ import java.util.Random;
 
  class NumGenerator {
 
-     private NumGenerator(){}
+     private NumGenerator(){
+
+     }
 
     public static int generate(int maximumAllowed) {
         return Math.abs(new Random().nextInt() % maximumAllowed) + 1;
